@@ -15,7 +15,7 @@ with open(csvpath,'r',newline="") as csvfile:
     dates = []
     prft_loss = []
     pch = []
-# Print all rows , mainpulate rows       
+# Print/check all rows , mainpulate rows     
     for row in csvreader:
         # print (row)
 # Define values to []extract       
@@ -24,26 +24,69 @@ with open(csvpath,'r',newline="") as csvfile:
 # populate lists       
         dates.append(date)
         prft_loss.append(pr_lo)
-        tmon= str(len(dates))
+# Get totals for number of months and total profit loss
+        tmon= (len(dates))
         prlo= sum(prft_loss)
-print ("Total Months: " + (tmon))
-print ("Total: $" + str(prlo)) 
+
 # check lists
 # print (dates)
 # print (prft_loss)
 
-# Calculate average change  
-# def substraction (x, y):
-#     total = x - y
-#     return total
-
 for i in range (len(prft_loss)-1):
-    difference = prft_loss[i] - prft_loss[i+1]
+    difference = prft_loss[i+1] - prft_loss[i]
     pch.append(difference)
-print (pch[2])
-print (sum(pch))
-print (round(((sum(pch)) / (len(pch))),2))
 
+#Final print terminal
+
+print ("Financial Analysis")
+print ("----------------------------------")
+print ("Total Months: " + str(tmon))
+print ("Total Profit: $" + str(prlo)) 
+print ("Average Change: $" + str((round(((sum(pch)) / (len(pch))),2))))
+print ("Greatest Increase in Profits: " + (dates[pch.index(max(pch))]) + "  ($" + str(max(pch)) + ")")
+print ("Greatest Decrease in Profits: " + (dates[pch.index(min(pch))]) + "  ($" + str(min(pch)) + ")")
+
+#Print to text file
+f = open("Financial Analysis.txt", "w")
+# Print multiple lines, add \n to the begining of each line to make sure it separates.
+lines= [
+    "Financial Analysis",
+    "\n----------------------------------", 
+    "\nTotal Months: " + str(tmon), 
+    "\nTotal Profit: $" + str(prlo), 
+    "\nAverage Change: $" + str((round(((sum(pch)) / (len(pch))),2))),
+    "\nGreatest Increase in Profits: " + (dates[pch.index(max(pch))]) + "  ($" + str(max(pch)) + ")", 
+    "\nGreatest Decrease in Profits: " + (dates[pch.index(min(pch))]) + "  ($" + str(min(pch)) + ")"
+    ] 
+f.writelines(lines) 
+#Remember to close or the file wont be written.
+f.close()
+
+# f = open("Financial Analysis.txt", "r") 
+# print (f.readlines()) 
+
+
+# f.write ("Financial Analysis")
+# f.write ("----------------------------------")
+# f.write ("Total Months: " + (tmon))
+# f.write ("Total Profit: $" + str(prlo)) 
+# f.write ("Average Change: $" + str((round(((sum(pch)) / (len(pch))),2))))
+# f.write ("Greatest Increase in Profits: " + (dates[pch.index(max(pch))]) + "  ($" + str(max(pch)) + ")")
+# f.write ("Greatest Decrease in Profits: " + (dates[pch.index(min(pch))]) + "  ($" + str(min(pch)) + ")")
+
+
+ 
+
+
+
+
+
+# check a few values for final print
+# print (dates[pch.index(max(pch))])
+# print (dates[pch.index(min(pch))])
+# print (pch)
+# print (sum(pch))
+# print (pch[0])
 # Greatest increase max()
 # Greatest decrease min()
 
