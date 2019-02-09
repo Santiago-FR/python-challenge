@@ -7,7 +7,7 @@ csvpath = os.path.join("Resources","election_data.csv")
 with open(csvpath,'r',newline="") as csvfile:
 # Specifiy delimeter and the variable to hold it
     csvreader = csv.reader(csvfile, delimiter=',')
-    # print(csvreader)  
+    # print(csvreader) 
 # Print the header and pull it out of rows.
     csv_header = next(csvreader)
     # print(f'CSV Header: {csv_header}')

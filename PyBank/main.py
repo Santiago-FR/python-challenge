@@ -61,39 +61,3 @@ lines= [
 f.writelines(lines) 
 #Remember to close or the file wont be written.
 f.close()
-
-# f = open("Financial Analysis.txt", "r") 
-# print (f.readlines()) 
-
-
-# f.write ("Financial Analysis")
-# f.write ("----------------------------------")
-# f.write ("Total Months: " + (tmon))
-# f.write ("Total Profit: $" + str(prlo)) 
-# f.write ("Average Change: $" + str((round(((sum(pch)) / (len(pch))),2))))
-# f.write ("Greatest Increase in Profits: " + (dates[pch.index(max(pch))]) + "  ($" + str(max(pch)) + ")")
-# f.write ("Greatest Decrease in Profits: " + (dates[pch.index(min(pch))]) + "  ($" + str(min(pch)) + ")")
-
-
- 
-
-
-
-
-
-# check a few values for final print
-# print (dates[pch.index(max(pch))])
-# print (dates[pch.index(min(pch))])
-# print (pch)
-# print (sum(pch))
-# print (pch[0])
-# Greatest increase max()
-# Greatest decrease min()
-
-
-
-
-
-
-
-
